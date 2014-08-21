@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: expense_organizer_development
+
+test:
+  adapter: postgresql
+  database: expense_organizer_test
