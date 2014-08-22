@@ -4,6 +4,8 @@ class Expense < ActiveRecord::Base
   validates :price, presence: true
   
   before_save :capital_case
+  
+  belongs_to :category
 
 private
 
