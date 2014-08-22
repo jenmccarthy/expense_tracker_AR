@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821025523) do
+ActiveRecord::Schema.define(version: 20140822220803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string "name"
+    t.float  "budget"
+  end
 
   create_table "expenses", force: true do |t|
     t.string   "description"
