@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'activeurecord'
+gem 'activerecord'
 gem 'active_record_migrations'
 gem 'pg'
 
