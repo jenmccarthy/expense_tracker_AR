@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'activeurecord'
 gem 'active_record_migrations'
-gem 'rspec'
 gem 'pg'
-gem 'pry'
+
+group :test do
+  gem 'rspec'
+  gem 'shoulda-matchers'
+  gem 'pry'
+end
