@@ -6,6 +6,16 @@ class Expense < ActiveRecord::Base
   before_save :capital_case
   
   belongs_to :category
+  
+  def self.time_period(start_date, end_date)
+    time_expenses = []
+    time_range = start_date...end_date
+    results = Expense.where(created_at: time_range)
+    results.each do |result|
+      time_expenses << result
+    end
+    time_expenses
+  end
 
 private
 

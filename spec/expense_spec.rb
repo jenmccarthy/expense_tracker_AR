@@ -19,4 +19,14 @@ describe Expense do
     expect(expense1.category).to eq category1
   end
   
+  describe 'self.time_period' do
+    it 'will return all the expenses for a certain time period' do
+      expense1 = Expense.create({description: 'pizza', price: 5.99, category_id: 1, created_at: '2014-08-20'})
+      expense2 = Expense.create({description: 'gasoline', price: 40.00, category_id: 2, created_at: '2014-07-01'})
+      expense3 = Expense.create({description: 'shampoo', price: 12.00, category_id: 3, created_at: '2014-08-13'})
+      expect(Expense.time_period('2014-08-01', '2014-08-24')).to eq [expense1, expense3]
+    end
+  end
+
+  
 end
