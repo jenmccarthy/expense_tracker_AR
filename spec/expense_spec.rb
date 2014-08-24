@@ -27,6 +27,13 @@ describe Expense do
       expect(Expense.time_period('2014-08-01', '2014-08-24')).to eq [expense1, expense3]
     end
   end
+  
+  it 'will total the monies spent on all expenses' do
+    expense1 = Expense.create({description: 'pizza', price: 5.99, category_id: 1})
+    expense2 = Expense.create({description: 'gasoline', price: 40.00, category_id: 2})
+    expense3 = Expense.create({description: 'shampoo', price: 12.00, category_id: 3})
+    expect(Expense.total).to eq 57.99
+  end
 
   
 end

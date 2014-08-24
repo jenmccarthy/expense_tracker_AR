@@ -16,6 +16,14 @@ class Expense < ActiveRecord::Base
     end
     time_expenses
   end
+  
+  def self.total
+    results = []
+    Expense.all.each do |expense|
+      results << expense.price
+    end
+    expense_total = results.inject{|sum, x| sum + x}
+  end
 
 private
 

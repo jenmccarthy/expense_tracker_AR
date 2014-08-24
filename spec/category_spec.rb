@@ -13,4 +13,13 @@ describe Category do
     expect(category1.expenses).to eq [expense1, expense2]
   end
   
+  it 'will tell what percentage of all total expenses are being spent in a category' do
+    category1 = Category.create({name: 'dining', budget: 100})
+    category2 = Category.create({name: 'home', budget: 400})
+    expense1 = Expense.create({description: 'pizza', price: 5.99, category_id: category1.id })
+    expense2 = Expense.create({description: 'gasoline', price: 40.00, category_id: category2.id})
+    expense3 = Expense.create({description: 'shampoo', price: 12.00, category_id: category2.id})
+    expect(category2.category_percent).to eq 89
+  end
+  
 end
