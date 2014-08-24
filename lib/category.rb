@@ -17,4 +17,15 @@ class Category < ActiveRecord::Base
     category_percent.floor
   end
   
+  def in_budget
+    results = []
+    category_expenses = Expense.where(category_id: self.id)
+    category_expenses.each do |expense|
+      results << expense.price 
+    end
+    category_total = results.inject{|sum, x| sum + x}
+    leftovers = self.budget - category_total
+  end
+  
+  
 end

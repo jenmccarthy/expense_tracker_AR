@@ -22,4 +22,20 @@ describe Category do
     expect(category2.category_percent).to eq 89
   end
   
+  it 'will compare money spent in category to total budget set' do
+    category1 = Category.create({name: 'dining', budget: 100})
+    category2 = Category.create({name: 'home', budget: 400})
+    expense1 = Expense.create({description: 'pizza', price: 5.99, category_id: category1.id })
+    expense2 = Expense.create({description: 'gasoline', price: 40.00, category_id: category2.id})
+    expense3 = Expense.create({description: 'shampoo', price: 12.00, category_id: category2.id})
+    expect(category2.category_percent).to eq 89
+  end
+  
+  it 'will compare total spent in a category to overall budget to return money left or overspent amount' do
+    category1 = Category.create({name: 'home', budget: 400})
+    expense1 = Expense.create({description: 'gasoline', price: 40.00, category_id: category1.id})
+    expense2 = Expense.create({description: 'shampoo', price: 12.00, category_id: category1.id})
+    expect(category1.in_budget).to eq 348
+  end
+  
 end
