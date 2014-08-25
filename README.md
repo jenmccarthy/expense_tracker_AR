@@ -6,9 +6,9 @@ This program will track expenses under different categories.  You can total your
 This will satisfy the databases with active record assessment.
 
 ###Dependencies
-rspec
-active_record
-active_record_migrations
+rspec, 
+active_record, 
+active_record_migrations, 
 postgresql
 
 ###Setup
