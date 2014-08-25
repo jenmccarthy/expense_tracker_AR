@@ -12,9 +12,9 @@ class Category < ActiveRecord::Base
       results << expense.price 
     end
     category_total = results.inject{|sum, x| sum + x}
-    decimal = category_total / Expense.total
-    category_percent = decimal * 100
-    category_percent.floor
+    decimal = (category_total) / (Expense.total)
+    percent = decimal * 100
+    percent.floor
   end
   
   def in_budget
@@ -24,7 +24,7 @@ class Category < ActiveRecord::Base
       results << expense.price 
     end
     category_total = results.inject{|sum, x| sum + x}
-    leftovers = self.budget - category_total
+    leftovers = (self.budget) - (category_total)
   end
   
   

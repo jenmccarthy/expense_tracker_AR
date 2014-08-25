@@ -11,5 +11,6 @@ ActiveRecord::Base.establish_connection(YAML::load(File.open('db/config.yml'))["
 RSpec.configure do |config|
   config.after(:each) do
     Expense.all.each { |expense| expense.destroy }
+    Category.all.each { |category| category.destroy }
   end
 end
